@@ -1,0 +1,243 @@
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* !!!!!!!!! THIS IS LOGIN PAGE STYLE !!!!!!!!! */
+
+/* .home_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} */
+
+.login_div,
+.reg_div {
+  height: 100vh;
+}
+
+.login_inp_div,
+.login_div,
+.login_form,
+.login_btn_div,
+.login_nav_div,
+.login_title,
+.reg_div,
+.reg_form_div,
+.reg_title,
+.reg_inp_div,
+.reg_btn_div,
+.reg_nav_div,
+.home_category_select_div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.login_div > h2 {
+  color: #7d7d7d;
+}
+.login_inp_div,
+.reg_inp_div {
+  gap: 5px;
+}
+
+.login_form,
+.reg_form_div {
+  align-items: normal;
+  padding: 70px 100px;
+  background-color: #ffffffcb;
+  border-radius: 10px;
+  gap: 15px;
+  box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.37);
+}
+
+.login_inp_div > input,
+.reg_inp_div > input {
+  background-color: #d9e3ec;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 5px;
+  color: #7d7d7d;
+  font-size: 18px;
+  transition: 0.5s border;
+}
+.login_inp_div > input:hover,
+.reg_inp_div > input:hover {
+  border: 1px solid #427db0;
+}
+
+.login_btn_div,
+.reg_btn_div {
+  gap: 5px;
+  align-items: normal;
+}
+.login_btn_div > button,
+.reg_btn {
+  font-size: 18px;
+  color: white;
+  transition: 0.5s;
+}
+.login_btn_div > button:hover,
+.reg_btn:hover {
+  background-color: #427db0;
+}
+.login_nav_div > p,
+.reg_nav_div > p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* !!!!!!!!! THIS IS LOGIN PAGE STYLE !!!!!!!!! */
+
+/* !!!!!!!!! THIS IS HOME PAGE STLYE !!!!!!!!! */
+
+.logout_div {
+  position: absolute;
+  top: 7px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+.logout_div > button {
+  background-color: #427db0;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.37);
+}
+
+.home_header_div {
+  display: flex;
+  flex-direction: column;
+}
+
+.home_category_select_div {
+  gap: 5px;
+  background-color: #a7c1d8;
+  flex-direction: row;
+  padding: 10px 20%;
+}
+
+.join_btn {
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.37);
+
+  font-size: 18px;
+  padding: 5px 20px;
+  background-color: #427db0;
+}
+
+.category_div {
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.category_div:hover {
+  color: white;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.178);
+  background-color: #427db091;
+}
+.active_category {
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.178);
+  background-color: #427db0;
+  color: white;
+}
+
+.show_hide_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show_hide_btn > button {
+  background-color: #427db0;
+  border-radius: 0px 0px 40px 40px;
+  color: white;
+}
+
+.welcome_text_div {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.nav_icons {
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+}
+.nav_icons > a {
+  cursor: pointer;
+  color: rgba(134, 134, 134, 0.87);
+  transition: 0.2s color;
+}
+
+.nav_icons > a:hover {
+  color: rgb(110, 110, 110);
+}
+
+/* !!!!!!!!! THIS IS HOME PAGE STLYE !!!!!!!!! */
+
+/* !!!!!!!!! THIS IS CHAT PAGE STLYE !!!!!!!!! */
+
+.chat_header_div,
+.font_reg_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.font_reg_btn {
+  background-color: transparent;
+  color: #7d7d7d;
+}
+
+.change_room_btn {
+  background-color: transparent;
+  color: #7d7d7d;
+  font-size: 18px;
+  transition: 0.2s;
+}
+.change_room_btn:hover {
+  color: white;
+  background-color: #427db0;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.178);
+}
+
+.chat_div {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding: 50px 20%;
+}
+
+.chat_box_div {
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  justify-content: end;
+}
+
+.chat_content_div {
+  padding: 10px;
+}
+
+.input_box {
+  display: flex;
+}
+.input_box > input {
+  color: black;
+  font-size: 16px;
+  padding: 0px 10px;
+  width: 100%;
+  background-color: transparent;
+  color: #525252;
+  border: 1px solid black;
+  border-left: none;
+  border-bottom: none;
+}
+.input_box > button {
+  border-radius: 0px;
+  background-color: #427db0;
+  border-top: 1px solid black;
+}
