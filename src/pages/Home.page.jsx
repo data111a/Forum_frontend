@@ -1,55 +1,65 @@
-import { useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
+import Reminder from "../components/Reminder";
+import Chat from "../components/Chat";
+import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import { FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
 
-const Home = () => {
+const Ala = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [joined, setJoined] = useState(false);
+  const [username] = useState(localStorage.getItem("username"));
+  const [width, setWidth] = useState(window.innerWidth);
+  const leaveRoomBtnRef = useRef();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
+    // Function to update state on window resize
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
-    <div className="home_div">
-      <Header />
-      <div className="welcome_text_div">
-        <h2>Please select room</h2>
-      </div>
-      <div className="home_content_div">
-        <h2>Before entering chat let me intrdoce myself</h2>
-        <p>
-          I'm data, self-taught web developer. I worked on small and medium
-          projects by myself. From these projects I learned many things
-          including
-        </p>
-        <li>
-          <l>React</l>
-          <ul>REST API</ul>
-          <ul>Express.js</ul>
-          <ul>Node.js</ul>
-          <ul>WebSocket</ul>
-        </li>
-        <p>and many more. If u are interested you cvan contact me</p>
-        <div className="nav_icons">
-          <a href="https://github.com/data111a" target="_blank">
-            <FaGithub style={{ fontSize: "40px" }} />
-          </a>
-          <a href="https://www.facebook.com/xxanaxx000/" target="_blank">
-            <FaFacebook style={{ fontSize: "40px" }} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/davit-kikaleishvili-aa72b6256/"
-            target="_blank"
-          >
-            <FaLinkedin style={{ fontSize: "40px" }} />
-          </a>
-        </div>
+    <div className="Ala_div">
+      {width > 860 || !joined ? (
+        <Sidebar
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          joined={joined}
+          setJoined={setJoined}
+          leaveRoomBtnRef={leaveRoomBtnRef}
+          navigate={navigate}
+        />
+      ) : (
+        ""
+      )}
+      <div className="Chat_div">
+        {" "}
+        {joined ? (
+          <Chat
+            width={width}
+            setJoined={setJoined}
+            room_category={selectedCategory}
+            leaveRoomBtnRef={leaveRoomBtnRef}
+            username={username}
+          />
+        ) : (
+          <Reminder width={width} />
+        )}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Ala;

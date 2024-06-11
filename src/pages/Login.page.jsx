@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -9,17 +9,27 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await axios.post("http://localhost:3000/login", {
-      username,
-      password,
-    });
+    const res = await axios.post(
+      "https://forum-backend-oriy.onrender.com/login",
+      // "http://localhost:3000/login",
+      {
+        username,
+        password,
+      }
+    );
     if (res.data.status === 200) {
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
       navigate("/home");
     } else {
       setError("User not found!");
     }
   };
+
+  useEffect(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+  }, []);
 
   return (
     <div className="login_div">
@@ -43,6 +53,7 @@ const Login = () => {
               setError("");
               setPassword(e.target.value);
             }}
+            onKeyPress={(e) => e.key === "Enter" && handleLogin()}
           />
         </div>
         <div className="login_btn_div">

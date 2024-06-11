@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 
 const Registration = () => {
@@ -10,17 +10,27 @@ const Registration = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+  }, []);
+
   const handleRegister = async () => {
-    const res = await axios.post("http://localhost:3000/users/add", {
-      username,
-      password,
-      repetPassword: repetPass,
-      email,
-    });
+    const res = await axios.post(
+      "https://forum-backend-oriy.onrender.com/users/add",
+      // "http://localhost:3000/users/add",
+      {
+        username,
+        password,
+        repetPassword: repetPass,
+        email,
+      }
+    );
     console.log(res);
     if (res.data.status === 200) {
       console.log("movida ak");
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
       navigate("/home");
     } else {
       setError("Failed to register!");
