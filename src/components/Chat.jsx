@@ -88,7 +88,7 @@ const Chat = ({ room_category, setJoined, username, width }) => {
     if (connectionStatus === "Closed") {
       // eslint-disable-next-line react/prop-types
       setJoined(false);
-      navigate("/home");
+      navigate("/Forum_frontend/home");
     }
   }, [connectionStatus, navigate]);
 

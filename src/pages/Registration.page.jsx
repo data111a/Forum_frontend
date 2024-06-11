@@ -31,7 +31,7 @@ const Registration = () => {
       console.log("movida ak");
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.username);
-      navigate("/home");
+      navigate("/Forum_frontend/home");
     } else {
       setError("Failed to register!");
     }

@@ -14,7 +14,7 @@ const Ala = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      navigate("/");
+      navigate("/Forum_frontend");
     }
     // Function to update state on window resize
     const handleResize = () => {

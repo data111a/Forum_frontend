@@ -20,7 +20,7 @@ const Login = () => {
     if (res.data.status === 200) {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.username);
-      navigate("/home");
+      navigate("/Forum_frontend/home");
     } else {
       setError("User not found!");
     }

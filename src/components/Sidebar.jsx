@@ -70,7 +70,10 @@ const Sidebar = ({
           <p className="error_message">{error}</p>
         </div>
       </div>
-      <button className="logout_btn" onClick={() => navigate("/")}>
+      <button
+        className="logout_btn"
+        onClick={() => navigate("/Forum_frontend")}
+      >
         Log out
       </button>
     </div>
